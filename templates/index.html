@@ -1,0 +1,29 @@
+<h3>Consolidation Settlement (Terzaghi - NC)</h3>
+
+<form method="POST">
+    <label>Layer Thickness H (m):</label>
+    <input type="number" name="H" step="any" required>
+    <br><br>
+
+    <label>Compression Index Cc:</label>
+    <input type="number" name="Cc" step="any" required>
+    <br><br>
+
+    <label>Initial Void Ratio e₀:</label>
+    <input type="number" name="e0" step="any" required>
+    <br><br>
+
+    <label>Initial Effective Stress σ'₀ (kPa):</label>
+    <input type="number" name="sigma0" step="any" required>
+    <br><br>
+
+    <label>Stress Increment Δσ (kPa):</label>
+    <input type="number" name="delta_sigma" step="any" required>
+    <br><br>
+
+    <button type="submit">Calculate Settlement</button>
+</form>
+
+{% if settlement %}
+    <h3>Primary Consolidation Settlement: {{ settlement }} m</h3>
+{% endif %}

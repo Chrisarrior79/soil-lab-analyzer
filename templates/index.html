@@ -1,34 +1,68 @@
-<h3>Consolidation Settlement (Terzaghi - NC)</h3>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soil Lab Analyzer</title>
+</head>
+<body style="font-family: Arial; max-width:600px; margin:auto;">
+
+<h1>Soil Lab Analyzer</h1>
+
+<p>
+Geotechnical calculator for primary consolidation settlement<br>
+Based on Terzaghi consolidation theory
+</p>
+
+<hr>
+
+<h3>Input Parameters</h3>
 
 <form method="POST">
-    <label>Layer Thickness H (m):</label>
-    <input type="number" name="H" step="any" required>
-    <br><br>
 
-    <label>Compression Index Cc:</label>
-    <input type="number" name="Cc" step="any" required>
-    <br><br>
+    <label>Layer Thickness H (m)</label><br>
+    <input type="number" name="H" step="any" required><br><br>
 
-    <label>Initial Void Ratio e₀:</label>
-    <input type="number" name="e0" step="any" required>
-    <br><br>
+    <label>Compression Index Cc</label><br>
+    <input type="number" name="Cc" step="any" required><br><br>
 
-    <label>Initial Effective Stress σ'₀ (kPa):</label>
-    <input type="number" name="sigma0" step="any" required>
-    <br><br>
+    <label>Initial Void Ratio e₀</label><br>
+    <input type="number" name="e0" step="any" required><br><br>
 
-    <label>Stress Increment Δσ (kPa):</label>
-    <input type="number" name="delta_sigma" step="any" required>
-    <br><br>
+    <label>Initial Effective Stress σ'₀ (kPa)</label><br>
+    <input type="number" name="sigma0" step="any" required><br><br>
 
-    <button type="submit">Calculate Settlement</button>
+    <label>Stress Increment Δσ (kPa)</label><br>
+    <input type="number" name="delta_sigma" step="any" required><br><br>
+
+    <button type="submit">Calculate</button>
+
 </form>
 
+<hr>
+
 {% if settlement %}
-    <h3>Settlement Results:</h3>
+<h3>Results</h3>
 
-    <p><b>Meters:</b> {{ settlement }} m</p>
+Settlement:
 
-    <p><b>Millimeters:</b> {{ settlement_mm }} mm</p>
+<ul>
+<li>{{ settlement }} m</li>
+<li>{{ settlement_mm }} mm</li>
+</ul>
 
 {% endif %}
+
+{% if error %}
+<p style="color:red;">
+{{ error }}
+</p>
+{% endif %}
+
+<hr>
+
+<p style="font-size:12px;">
+Developed by Cristian Guerrero<br>
+Python • Flask • Geotechnical Engineering
+</p>
+
+</body>
+</html>

@@ -7,6 +7,7 @@ app = Flask(__name__)
 def home():
 
     settlement = None
+    settlement_mm = None
 
     if request.method == "POST":
 
@@ -16,11 +17,15 @@ def home():
         sigma0 = float(request.form["sigma0"])
         delta_sigma = float(request.form["delta_sigma"])
 
-        settlement = calculate_primary_consolidation(
+        settlement, settlement_mm = calculate_primary_consolidation(
             H, Cc, e0, sigma0, delta_sigma
         )
 
-    return render_template("index.html", settlement=settlement)
+    return render_template(
+        "index.html",
+        settlement=settlement,
+        settlement_mm=settlement_mm
+    )
 
 
 if __name__ == "__main__":

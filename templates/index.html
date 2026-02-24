@@ -25,5 +25,10 @@
 </form>
 
 {% if settlement %}
-    <h3>Primary Consolidation Settlement: {{ settlement }} m</h3>
+    <h3>Settlement Results:</h3>
+
+    <p><b>Meters:</b> {{ settlement }} m</p>
+
+    <p><b>Millimeters:</b> {{ settlement_mm }} mm</p>
+
 {% endif %}
